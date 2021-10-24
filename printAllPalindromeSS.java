@@ -1,0 +1,37 @@
+package pepCoding;
+
+import java.util.Scanner;
+
+public class printAllPalindromeSS {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String s = scn.nextLine();
+
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
+                String sub = s.substring(i, j);
+//                System.out.println(sub);
+                if(isPalindrome(sub) == true){
+                    System.out.println(sub);
+                }
+
+            }
+        }
+    }
+
+    public static boolean isPalindrome(String sub){
+        boolean flag = true;
+        int l =0;
+        int r = sub.length()-1;
+//        System.out.println(sub + " " + l + " " + r);
+        while(l<r){
+            if(sub.charAt(l) != sub.charAt(r)){
+                flag = false;
+                break;
+            }
+            l++;
+            r--;
+        }
+        return flag;
+    }
+}
